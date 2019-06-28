@@ -47,7 +47,7 @@ Default output format [None]: json
 
 It also stores the other settings you entered in ~/.aws/config:
 ```
-Clone the Repository:
+
 Package the Consul AMI
 
 ```sh
@@ -74,6 +74,20 @@ VPC_ID (VPC Id if it needs to be created in particular VPC. By default it will s
 
 Availability_Zones { Array of zones which the Instance need to spinup}.
 ```
+## Running the Application:
+
+```sh
+terraform init
+terraform plan
+terraform apply
+```
+
+## Access the Application:
+
+Http://consulserverpublicip:8500/
+
+You can notice the consul server will discover the consul nodes with the agents Installed and you can see the discovered nodes.
+
 ## Running the tests
 
 ### One-time setup
@@ -98,6 +112,30 @@ To run a specific test called `TestFoo`:
 cd test
 go test -v -timeout 60m -run TestFoo
 ```
+
+### Maintainance:
+
+After setting up your first cluster and nodes, it is an ideal time to make sure your cluster is healthy.
+
+### Consul health:
+
+* Transaction timing  
+* Autopilot 
+* Garbage collection
+
+### Server health:
+
+* File descriptors
+* CPU usage
+* Network activity
+* Disk activity
+* Memory usage
+
+
+More Information on Collecting the Metrics, Telemetry, clearing garbage collection is here.
+
+https://learn.hashicorp.com/consul/day-2-operations/monitoring.
+
 ## Cost Calculator:
 
 https://calculator.s3.amazonaws.com/index.html#r=IAD&s=EC2&key=files/calc-932180febaddeb766005975f8dd56784ee2ec5c3&v=ver20190604sQ
